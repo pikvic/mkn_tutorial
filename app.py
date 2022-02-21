@@ -13,5 +13,5 @@ app = Flask("app")
 @app.get("/")
 def index():
     сообщение = f"Hello, {choice(names)}"
-    color = choice(["red", "blue", "white"])
+    color = choice(["red", "blue", "green", "purple", "orange", "pink"])
     return render_template('index.html', message=сообщение, color=color)
