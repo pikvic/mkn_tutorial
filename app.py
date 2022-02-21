@@ -10,12 +10,12 @@ names = [
 
 counter = 0
 
-
 app = Flask("app")
 
 @app.get("/")
 def index():
     сообщение = f"Hello, {choice(names)}"
+    global counter
     counter += 1
     color = choice(["red", "blue", "green", "purple", "orange", "pink"])
     return render_template('index.html', message=сообщение, color=color, counter=counter)
