@@ -1,21 +1,34 @@
-from flask import Flask, render_template
-from random import choice
-
-names = [
-    'Alex',
-    'Pete',
-    'Arcady',
-    'Kate'
-]
-
-counter = 0
+from flask import Flask, request, render_template
+import random
 
 app = Flask("app")
 
+posts = [
+    {
+        "user": "Pete",
+        "title": "Warning!",
+        "content": "Lorem ipsum hello world!",
+        "date": "29-02-1988"
+    }, 
+    {
+        "user": "Alex",
+        "title": "Caution!",
+        "content": "Text 2 is ipsum hello world!",
+        "date": "38-02-1988"
+    },
+    {
+        "user": "Mary",
+        "title": "Hey!",
+        "content": "Go here!",
+        "date": "38-02-1988"
+    }
+]
+
 @app.get("/")
 def index():
-    сообщение = f"Hello, {choice(names)}"
-    global counter
-    counter += 1
-    color = choice(["red", "blue", "green", "purple", "orange", "pink"])
-    return render_template('index.html', message=сообщение, color=color, counter=counter)
+    return render_template("index.html", posts=posts)
+
+@app.get("/hello")
+def hello():
+    name = request.args.get("name", "John")
+    return f"Hello, {name}!"
