@@ -6,6 +6,9 @@ app = Flask("app")
 
 POSTS_DIR = Path('posts')
 
+if not POSTS_DIR.exists():
+    POSTS_DIR.mkdir()
+
 def create_post(post):
     with open(POSTS_DIR / f'post{post["id"]}.txt', 'wt') as f:
         f.write(str(post["id"]) + '\n')
