@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Post</title>
+</head>
+<body>
+    <h1>Add new post</h1>
+    <form action="/add_post" method="post">
+        <div>
+            <label for="user">User:</label> 
+            <input name="user" type="text">
+        </div>
+        <div>
+            <label for="title">Title:</label> 
+            <input name="title" type="text">
+        </div>
+        <div>
+            <label for="content">Content:</label> 
+            <textarea name="content" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Add post">
+        </div>
+    </form>
+</body>
+</html>
